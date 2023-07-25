@@ -14,12 +14,11 @@ int main(int argc, char** argv) {
 
 	gpiod_line_request_output(led, "example", 0);
 	
-	for (int i = 0; i < 10; ++i) {
+	for (int i = 0; i <= 10; ++i) {
 		gpiod_line_set_value(led, i%2);
 		usleep(100000);
 	}
 
-	gpiod_line_set_value(led, 0);
 	gpiod_line_release(led);
 	gpiod_chip_close(chip);
 	return 0;
